@@ -1,6 +1,6 @@
 {
   "name": "fat-cat",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "An interpolation framework intended for type usage.",
   "main": "lib/fat-cat.js",
   "scripts": {
