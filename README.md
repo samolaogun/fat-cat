@@ -35,10 +35,10 @@ npm install rhythm-type
 
 The options object takes 2 arguments, each altering how rhythm functions.
 
-- clamp {boolean}
-  - Specifies whether or not values that exceed the value bracket provided should be managed. This option is set to **true by default**.
-- unit {string}
-  - The unit of property or properties. For brevity, **only pixel units can be used to describe breakpoints**. The **default unit is px**.
+- `clamp` {boolean}
+  - Specifies whether or not values that exceed the value bracket provided should be managed. This option is set to **true by default**.
+- `unit` {string}
+  - The unit of property or properties. For brevity, **only pixel units can be used to describe breakpoints**. The **default unit is px**.
 
 #### Usage
 
