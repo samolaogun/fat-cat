@@ -60,3 +60,5 @@ class Rhythm
 						item.style[prop] = @value + @unit for prop in @props
 			else
 					el.style[prop] = @value + @unit for prop in @props
+
+module?.exports = Rhythm;
