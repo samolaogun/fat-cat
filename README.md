@@ -1,8 +1,8 @@
-#### Rhythm
+### Rhythm
 
 Rhythm is an interpolation framework intended for type usage. It allows type to degrade proportionally and gracefully as it should. Rhythm is available in one port, vanilla javascript (no jQuery). At the moment, SASS support is on hold. This is because a SASS implementation is likely to be confusing or broken because most browsers do not currently support heterogeneous CSS calculations. Rhythm is only to be used with properties that take `pixel`, `em`, `rem`, and `viewport` units because Rhythm only interpolates number values. Color (rgb(a), hsl, hex) support is coming in the future, but is not currently available.
 
-##### Installation
+#### Installation
 
 To install rhythm, you can clone the git repository or install the npm package.
 
@@ -16,7 +16,7 @@ git clone https://github.com/samolaogun/rhythm.git
 npm install rhythm-type
 ```
 
-##### Parameters
+#### Parameters
 
 `Rhythm(element, props, pairs[, opts])`
 
@@ -31,7 +31,7 @@ npm install rhythm-type
 - `opts` {object}[opts={}]
   - An object allowing the framework's behavior to be manipulated.
 
-##### Options
+#### Options
 
 The options object takes 2 arguments, each altering how rhythm functions.
 
@@ -40,7 +40,7 @@ The options object takes 2 arguments, each altering how rhythm functions.
 - unit {string}
   - The unit of property or properties. For brevity, **only pixel units can be used to describe breakpoints**. The **default unit is px**.
 
-##### Usage
+#### Usage
 
 Aforementioned, the `Rhythm` function has 3 parameters — element, property/properties, and options. The `element` parameter specifies the element(s) upon which the property or properties will be applied. The `props` parameter specifies the aspects of the element which are being interpolated. The pair parameter takes an array of value-breakpoint pairs as an argument. **You may have as many value-breakpoint pairs as you like**. The `opts` parameter takes an object—which allows you to edit functionality for your purpose—as an argument. More on that above. Remember to be careful when using the `clamp` option. If the `clamp` option is set to false and the relationship between the breakpoints and the value(s) of property or properties is steep, the value(s) of the property or properties will be exaggerated (bad things happen). For safety, the clamp option is set to true by default. Additionally, **only homogeneous units** can be interpolated.
 
@@ -73,3 +73,7 @@ Rhythm('main', ['marginLeft', 'marginRight'], [[8, 1000], [6, 1200], [4, 600]], 
 ```
 
 Color support and heterogeneous units are currently in consideration. Have fun interpolating.
+
+#### License
+
+See the license [here](https://github.com/samolaogun/rhythm/blob/master/LICENSE).
