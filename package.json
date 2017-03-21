@@ -1,0 +1,23 @@
+{
+  "name": "rhythm",
+  "version": "1.0.0",
+  "description": "An interpolation framework intended for type usage.",
+  "main": "lib/rhythm.js",
+  "scripts": {
+    "test": ""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/samolaogun/rhythm.git"
+  },
+  "keywords": [
+    "interpolation",
+    "type"
+  ],
+  "author": "Sam Olaogun",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/samolaogun/rhythm/issues"
+  },
+  "homepage": "https://github.com/samolaogun/rhythm#readme"
+}
