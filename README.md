@@ -4,7 +4,7 @@ Fat Cat is an interpolation framework intended for type usage. It allows type to
 
 #### Installation
 
-To install Fat Cat, you can clone the git repository or install the npm package.
+To install Fat Cat, you can clone the git repository or install the npm package. The package can be implemented into a web project with [webpack](https://webpack.github.io/) or with a script tag.
 
 ```bash
 # Clone the repo from github
@@ -14,6 +14,11 @@ git clone https://github.com/samolaogun/fat-cat.git
 ```bash
 # Install from npm
 npm install fat-cat
+```
+
+```html
+<!-- Add to web project -->
+<script src="path/to/fat-cat.js"></script>
 ```
 
 #### Parameters
