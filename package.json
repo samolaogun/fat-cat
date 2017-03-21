@@ -1,14 +1,14 @@
 {
-  "name": "rhythm",
+  "name": "fat-cat",
   "version": "1.0.0",
   "description": "An interpolation framework intended for type usage.",
-  "main": "lib/rhythm.js",
+  "main": "lib/fat-cat.js",
   "scripts": {
     "test": ""
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/samolaogun/rhythm.git"
+    "url": "git+https://github.com/samolaogun/fat-cat.git"
   },
   "keywords": [
     "interpolation",
@@ -17,7 +17,7 @@
   "author": "Sam Olaogun <sam.olaogun@gmail.com> (http://samolaogun.com)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/samolaogun/rhythm/issues"
+    "url": "https://github.com/samolaogun/fat-cat/issues"
   },
-  "homepage": "https://github.com/samolaogun/rhythm#readme"
+  "homepage": "https://github.com/samolaogun/fat-cat#readme"
 }

@@ -1,0 +1,107 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/local/bin/node', '/usr/local/bin/npm', 'publish' ]
+2 info using npm@2.15.8
+3 info using node@v4.4.7
+4 verbose publish [ '.' ]
+5 silly cache add args [ '.', null ]
+6 verbose cache add spec .
+7 silly cache add parsed spec Result {
+7 silly cache add   raw: '.',
+7 silly cache add   scope: null,
+7 silly cache add   name: null,
+7 silly cache add   rawSpec: '.',
+7 silly cache add   spec: '/Users/localhackday/Desktop/rhythm',
+7 silly cache add   type: 'directory' }
+8 verbose addLocalDirectory /Users/localhackday/.npm/rhythm/1.0.0/package.tgz not in flight; packing
+9 verbose correctMkdir /Users/localhackday/.npm correctMkdir not in flight; initializing
+10 verbose tar pack [ '/Users/localhackday/.npm/rhythm/1.0.0/package.tgz',
+10 verbose tar pack   '/Users/localhackday/Desktop/rhythm' ]
+11 verbose tarball /Users/localhackday/.npm/rhythm/1.0.0/package.tgz
+12 verbose folder /Users/localhackday/Desktop/rhythm
+13 info prepublish rhythm@1.0.0
+14 verbose addLocalTarball adding from inside cache /Users/localhackday/.npm/rhythm/1.0.0/package.tgz
+15 verbose correctMkdir /Users/localhackday/.npm correctMkdir not in flight; initializing
+16 silly cache afterAdd rhythm@1.0.0
+17 verbose afterAdd /Users/localhackday/.npm/rhythm/1.0.0/package/package.json not in flight; writing
+18 verbose correctMkdir /Users/localhackday/.npm correctMkdir not in flight; initializing
+19 verbose afterAdd /Users/localhackday/.npm/rhythm/1.0.0/package/package.json written
+20 silly publish { name: 'rhythm',
+20 silly publish   version: '1.0.0',
+20 silly publish   description: 'An interpolation framework intended for type usage.',
+20 silly publish   main: 'lib/rhythm.js',
+20 silly publish   scripts: { test: '' },
+20 silly publish   repository:
+20 silly publish    { type: 'git',
+20 silly publish      url: 'git+https://github.com/samolaogun/rhythm.git' },
+20 silly publish   keywords: [ 'interpolation', 'type' ],
+20 silly publish   author:
+20 silly publish    { name: 'Sam Olaogun',
+20 silly publish      email: 'sam.olaogun@gmail.com',
+20 silly publish      url: 'http://samolaogun.com' },
+20 silly publish   license: 'MIT',
+20 silly publish   bugs: { url: 'https://github.com/samolaogun/rhythm/issues' },
+20 silly publish   homepage: 'https://github.com/samolaogun/rhythm#readme',
+20 silly publish   readme: '### Rhythm\n\nRhythm is an interpolation framework intended for type usage. It allows type to degrade proportionally and gracefully as it should. Rhythm is available in one port, vanilla javascript (no jQuery). At the moment, SASS support is on hold. This is because a SASS implementation is likely to be confusing or broken because most browsers do not currently support heterogeneous CSS calculations. Rhythm is only to be used with properties that take `pixel`, `em`, `rem`, and `viewport` units because Rhythm only interpolates number values. Color (rgb(a), hsl, hex) support is coming in the future, but is not currently available.\n\n#### Installation\n\nTo install rhythm, you can clone the git repository or install the npm package.\n\n```bash\n# Clone the repo from github\ngit clone https://github.com/samolaogun/rhythm.git\n```\n\n```bash\n# Install from npm\nnpm install rhythm-type\n```\n\n#### Parameters\n\n`Rhythm(element, props, pairs[, opts])`\n\n- `element` {string|element|(string|element)[]}\n  - The element(s) upon which the property or properties are applied.\n  - If a string or element object argument is supplied, the property or properties will be applied to all instances of that element type. If an array argument is supplied with an array of strings or element objects, the property or properties will be applied to all instances of that element type. Array arguments may be heterogeneous (string or element object).\n- `props` {string|string[string, string...]}\n  - The property or properties that are being manipulated.\n- `pairs` {number[number, number]}\n  - An array containing value-breakpoint pairs. `[[value, breakpoint], [value, breakpoint]...]`\n  - If the array contains duplicate values for a single breakpoint, the smaller value is applied before the breakpoint and the larger value is applied after the breakpoint.\n- `opts` {object}[opts={}]\n  - An object allowing the framework\'s behavior to be manipulated.\n\n#### Options\n\nThe options object takes 2 arguments, each altering how rhythm functions.\n\n- `clamp` {boolean}\n  - Specifies whether or not values that exceed the value bracket provided should be managed. This option is set to **true by default**.\n- `unit` {string}\n  - The unit of property or properties. For brevity, **only pixel units can be used to describe breakpoints**. The **default unit is px**.\n\n#### Usage\n\nAforementioned, the `Rhythm` function has 3 parameters — element, property/properties, and options. The `element` parameter specifies the element(s) upon which the property or properties will be applied. The `props` parameter specifies the aspects of the element which are being interpolated. The pair parameter takes an array of value-breakpoint pairs as an argument. **You may have as many value-breakpoint pairs as you like**. The `opts` parameter takes an object—which allows you to edit functionality for your purpose—as an argument. More on that above. Remember to be careful when using the `clamp` option. If the `clamp` option is set to false and the relationship between the breakpoints and the value(s) of property or properties is steep, the value(s) of the property or properties will be exaggerated (bad things happen). For safety, the clamp option is set to true by default. Additionally, **only homogeneous units** can be interpolated.\n\n```javascript\n/* Basic Usage */\n\n/* The Rhythm function takes the string \'h1\' as an argument. This means that the interpolation will be applied to all \'h1\' element types. Notice how the CSS property is named by the DOM convention (fontSize). In this case, the \'h1\' elements\' font sizes are interpolated from 3ems @800px to 6ems @1200px. */\nRhythm(\'h1\', \'fontSize\', [[3, 800], [6, 1200]], {\n    unit: \'em\'\n})\n\n/* The Rhythm function takes the element object \'img\' as an argument. In this case, the \'img\' element\'s width is interpolated from 200px @800px to 400px @1200px. Because the unit is not specified, it is assumed to be px. */\nlet img = document.querySelector(\'img\')\nRhythm(img, \'width\', [[200, 1000], [400, 1200]])\n\n\n/* Advanced Cases */\n\n/* The Rythmn function takes the array \'h1\' as an argument. Note that more than two value-breakpoint pairs are used. In this case, the \'h1\' elements\' font sizes are interpolated from 3ems @800px to 6ems @1200px and 8ems @1400px. Remember, you can have as many breakpoints as you like. Again, here an array of element objects are passed through as an argument and are each manipulated. */\nlet h1 = document.querySelectorAll(\'h1\')\nRhythm(h1, \'fontSize\', [[3, 800], [6, 1200], [8, 1400]], {\n    unit: \'em\'\n})\n\n/* The Rhythm function takes the array \'h1\' as an argument. Note that multiple CSS properties are manipulated and more than two value-breakpoint pairs are used. In this case, the \'margin-left\' and \'margin-right\' properties are interpolated from 4vw @600px to 8vw @1000px and back down to 6vw @1200px. This is possible because each value-breakpoint pair is automagically sorted by its breakpoint value. When the client\'s screen size either surpasses or lags behind the lower or upper extremes, the value of the property or properties will maintain its last relationship with the screen size because clamp is turned off. */\nRhythm(\'main\', [\'marginLeft\', \'marginRight\'], [[8, 1000], [6, 1200], [4, 600]], {\n      clamp: false,\n      unit: \'vw\'\n})\n```\n\nColor support and heterogeneous units are currently in consideration. Have fun interpolating.\n\n#### License\n\nSee the license [here](https://github.com/samolaogun/rhythm/blob/master/LICENSE).\n',
+20 silly publish   readmeFilename: 'README.md',
+20 silly publish   gitHead: '1155c32c304b82257badab8759183f68a269f0b1',
+20 silly publish   _id: 'rhythm@1.0.0',
+20 silly publish   _shasum: 'c5929ef8e26d2dc64a2d8d236bf1c74afd6f95f0',
+20 silly publish   _from: '.' }
+21 verbose getPublishConfig undefined
+22 silly mapToRegistry name rhythm
+23 silly mapToRegistry using default registry
+24 silly mapToRegistry registry https://registry.npmjs.org/
+25 silly mapToRegistry data Result {
+25 silly mapToRegistry   raw: 'rhythm',
+25 silly mapToRegistry   scope: null,
+25 silly mapToRegistry   name: 'rhythm',
+25 silly mapToRegistry   rawSpec: '',
+25 silly mapToRegistry   spec: 'latest',
+25 silly mapToRegistry   type: 'tag' }
+26 silly mapToRegistry uri https://registry.npmjs.org/rhythm
+27 verbose publish registryBase https://registry.npmjs.org/
+28 silly publish uploading /Users/localhackday/.npm/rhythm/1.0.0/package.tgz
+29 verbose request uri https://registry.npmjs.org/rhythm
+30 verbose request sending authorization for write operation
+31 info attempt registry request try #1 at 9:05:35 PM
+32 verbose request using bearer token for auth
+33 verbose request id 7340beae9b7e750c
+34 http request PUT https://registry.npmjs.org/rhythm
+35 http 403 https://registry.npmjs.org/rhythm
+36 verbose headers { 'content-type': 'application/json',
+36 verbose headers   'cache-control': 'max-age=300',
+36 verbose headers   'content-length': '100',
+36 verbose headers   'accept-ranges': 'bytes',
+36 verbose headers   date: 'Tue, 21 Mar 2017 01:05:32 GMT',
+36 verbose headers   via: '1.1 varnish',
+36 verbose headers   connection: 'keep-alive',
+36 verbose headers   'x-served-by': 'cache-jfk8138-JFK',
+36 verbose headers   'x-cache': 'MISS',
+36 verbose headers   'x-cache-hits': '0',
+36 verbose headers   'x-timer': 'S1490058332.152575,VS0,VE260',
+36 verbose headers   vary: 'Accept-Encoding' }
+37 verbose request invalidating /Users/localhackday/.npm/registry.npmjs.org/rhythm on PUT
+38 error publish Failed PUT 403
+39 verbose stack Error: you do not have permission to publish "rhythm". Are you logged in as the correct user? : rhythm
+39 verbose stack     at makeError (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:264:12)
+39 verbose stack     at CachingRegistryClient.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:252:14)
+39 verbose stack     at Request._callback (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:172:14)
+39 verbose stack     at Request.self.callback (/usr/local/lib/node_modules/npm/node_modules/request/request.js:200:22)
+39 verbose stack     at emitTwo (events.js:87:13)
+39 verbose stack     at Request.emit (events.js:172:7)
+39 verbose stack     at Request.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/request/request.js:1067:10)
+39 verbose stack     at emitOne (events.js:82:20)
+39 verbose stack     at Request.emit (events.js:169:7)
+39 verbose stack     at IncomingMessage.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/request/request.js:988:12)
+40 verbose statusCode 403
+41 verbose pkgid rhythm
+42 verbose cwd /Users/localhackday/Desktop/rhythm
+43 error Darwin 16.5.0
+44 error argv "/usr/local/bin/node" "/usr/local/bin/npm" "publish"
+45 error node v4.4.7
+46 error npm  v2.15.8
+47 error code E403
+48 error you do not have permission to publish "rhythm". Are you logged in as the correct user? : rhythm
+49 error If you need help, you may report this error at:
+49 error     <https://github.com/npm/npm/issues>
+50 verbose exit [ 1, true ]
