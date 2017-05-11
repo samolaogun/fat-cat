@@ -57,8 +57,8 @@ class fatCat
 				el = document.querySelectorAll el
 
 				for item in el
-						item.style[prop] = @value + @unit for prop in @props
+					item.style[prop] = @value + @unit for prop in @props
 			else
-					el.style[prop] = @value + @unit for prop in @props
+				el.style[prop] = @value + @unit for prop in @props
 
 module?.exports = fatCat;
