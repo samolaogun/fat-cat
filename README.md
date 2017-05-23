@@ -75,7 +75,7 @@ are interpolated from 3ems @800px to 6ems @1200px and 8ems @1400px. Remember, yo
 have as many breakpoints as you like. Again, here an array of element objects are passed 
 through as an argument and are each manipulated. */
 let h1 = document.querySelectorAll('h1')
-Fat Cat(h1, 'fontSize', [[3, 800], [6, 1200], [8, 1400]], {
+fatCat(h1, 'fontSize', [[3, 800], [6, 1200], [8, 1400]], {
     unit: 'em'
 })
 
