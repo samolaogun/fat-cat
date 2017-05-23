@@ -79,7 +79,7 @@ fatCat(h1, 'fontSize', [[3, 800], [6, 1200], [8, 1400]], {
     unit: 'em'
 })
 
-/* The Fat Cat function takes the array 'h1' as an argument. Note that multiple CSS properties 
+/* The fatCat function takes the array 'h1' as an argument. Note that multiple CSS properties 
 are manipulated and more than two value-breakpoint pairs are used. In this case, the 'margin-left'
 and 'margin-right' properties are interpolated from 4vw @600px to 8vw @1000px and back down to 6vw
 @1200px. This is possible because each value-breakpoint pair is automagically sorted by its 
